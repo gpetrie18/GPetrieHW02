@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var MessageButton: UIButton!
 
-    var index = 0
+    var lastIndex = 0
     
     
     
@@ -36,9 +36,21 @@ class ViewController: UIViewController {
                         "You Are Awesome!",
                         "When the Genius Bar Needs Help, They Call You!",
                         "You Brighten My Day!",
-                        "I Can't Wait To Use Your App!"]
+                        "I Can't Wait To Use Your App!",
+                        "You Are Da Bomb"]
         
-        
+        let randomIndex: Int
+
+       
+        repeat {
+            randomIndex = Int(arc4random_uniform(UInt32(messages.count)))
+        }while randomIndex == lastIndex
+        MessageLabel.text = messages[randomIndex]
+
+        lastIndex = randomIndex
+
+
+        /*
         MessageLabel.text = messages[index]
         index = index+1
         
@@ -47,6 +59,7 @@ class ViewController: UIViewController {
         } else {
             index = index+1
         }
+        /*
         
         
         /*
