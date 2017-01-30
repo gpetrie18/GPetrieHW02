@@ -39,12 +39,12 @@ class ViewController: UIViewController {
                         "I Can't Wait To Use Your App!",
                         "You Are Da Bomb"]
         
-        let randomIndex: Int
+        var randomIndex: Int = Int(arc4random_uniform(UInt32(messages.count)))
 
        
-        repeat {
+        while randomIndex == lastIndex {
             randomIndex = Int(arc4random_uniform(UInt32(messages.count)))
-        }while randomIndex == lastIndex
+        }
         MessageLabel.text = messages[randomIndex]
 
         lastIndex = randomIndex
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         } else {
             index = index+1
         }
-        /*
+        */
         
         
         /*
