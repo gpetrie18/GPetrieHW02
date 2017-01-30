@@ -72,7 +72,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="AwesomeImage" destination="u5H-gO-s8P" id="Rez-je-gEw"/>
+                        <outlet property="AwesomeImage" destination="u5H-gO-s8P" id="OLz-IV-hVf"/>
                         <outlet property="MessageButton" destination="b9l-yV-LCT" id="CVL-dB-ChJ"/>
                         <outlet property="MessageLabel" destination="oeM-qJ-OQy" id="B4v-Qz-KDG"/>
                         <outlet property="soundSwitch" destination="lzC-7P-XzW" id="jR8-A5-dp6"/>

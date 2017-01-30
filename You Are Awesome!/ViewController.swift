@@ -12,12 +12,10 @@ import AVFoundation
 class ViewController: UIViewController {
 
     // Mark: Properties
+    
     @IBOutlet weak var MessageLabel: UILabel!
-    
     @IBOutlet weak var MessageButton: UIButton!
-   
     @IBOutlet weak var AwesomeImage: UIImageView!
-    
     @IBOutlet weak var soundSwitch: UISwitch!
     
     
@@ -78,7 +76,9 @@ class ViewController: UIViewController {
     
     @IBAction func soundSwitchPressed(_ sender: UISwitch) {
         if soundSwitch.isOn == false {
-            awesomePlayer.stop()
+            if lastSound != -1{
+                awesomePlayer.stop()
+            }
         }
     }
     
