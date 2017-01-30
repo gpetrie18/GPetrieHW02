@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
@@ -15,12 +16,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var MessageButton: UIButton!
    
     @IBOutlet weak var AwesomeImage: UIImageView!
+    
+    var awesomePlayer = AVAudioPlayer()
 
     
     
     var lastIndex = -1
     var lastImage = -1
     let numOfImages = 5
+    let numOfSounds = 5
+    
     
     
     
@@ -34,6 +39,25 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func playSound() {
+        var soundName = "sound" + String(arc4random_uniform(UInt32(numOfSounds)))
+        
+        if let sound = NSDataAsset(name: soundName) {
+            do {
+                try awesomePlayer = AVAudioPlayer(data: sound.data)
+                awesomePlayer.play()
+            } catch {
+                print("ERROR: Data from \(soundName) could not be played as an audio file")
+            }
+        } else {
+            print("ERROR: Could not load data from file \(soundName)")
+        }
+        
+        
+        
+        
+    }
+    
     @IBAction func MessageButtonPressed(_ sender: UIButton) {
         
         let messages = ["You Are Fantastic!",
@@ -63,7 +87,9 @@ class ViewController: UIViewController {
         AwesomeImage.isHidden = false
         AwesomeImage.image = UIImage(named: "image1" + String(randomImage))
         
-        lastIndex = randomImage
+        lastImage = randomImage
+        
+        playSound()
         
         
 
