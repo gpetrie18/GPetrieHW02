@@ -101,8 +101,7 @@ class ViewController: UIViewController {
         
         AwesomeImage.isHidden = false
         random = nonRepeatedRandom(last: &lastImage, range: numOfImages)
-        AwesomeImage.image = UIImage(named: "image1" + String(random))
-        
+        AwesomeImage.image = UIImage(named: "image" + String(random))
         
         if soundSwitch.isOn {
             random = nonRepeatedRandom(last: &lastSound, range: numOfSounds)
