@@ -13,8 +13,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var MessageLabel: UILabel!
     
     @IBOutlet weak var MessageButton: UIButton!
+   
+    @IBOutlet weak var AwesomeImage: UIImageView!
 
-    var lastIndex = 0
+    
+    
+    var lastIndex = -1
+    var lastImage = -1
+    let numOfImages = 5
     
     
     
@@ -40,7 +46,8 @@ class ViewController: UIViewController {
                         "You Are Da Bomb"]
         
         var randomIndex: Int = Int(arc4random_uniform(UInt32(messages.count)))
-
+        
+        var randomImage: Int = Int(arc4random_uniform(UInt32(numOfImages)))
        
         while randomIndex == lastIndex {
             randomIndex = Int(arc4random_uniform(UInt32(messages.count)))
@@ -48,6 +55,17 @@ class ViewController: UIViewController {
         MessageLabel.text = messages[randomIndex]
 
         lastIndex = randomIndex
+        
+        while randomImage == lastImage {
+            randomImage = Int(arc4random_uniform(UInt32(numOfImages)))
+        
+        }
+        AwesomeImage.isHidden = false
+        AwesomeImage.image = UIImage(named: "image1" + String(randomImage))
+        
+        lastIndex = randomImage
+        
+        
 
 
         /*
